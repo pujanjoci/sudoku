@@ -1,9 +1,9 @@
 :root {
-    --background-color: rgba(33, 37, 41, 1);
+    --background-color: rgb(75, 0, 130);
     --primary-text-color: rgba(233, 236, 239, 1);
-    --highlight-color: rgba(205, 212, 218, 1);
-    --border-color: rgba(233, 236, 239, 1);
-    --error-color: #e63946;
+    --highlight-color: rgb(17, 107, 185);
+    --border-color: rgb(0, 0, 0);
+    --error-color: #e6192a;
     --cell-size: 55px;
     --font-family: monospace;
     --font-size-small: 14px;
