@@ -4,9 +4,34 @@ const numberElements = document.querySelectorAll(".game-numbers span");
 let notCorrectCellsCount, currentActiveCell, sudokuPuzzle, solvedSudokuPuzzle, 
     timerIntervalId, isNotesActive = false, hintsCount = 3, mistakesCount = 0, currentTimeInSeconds = 0;
 
-function showOverlay() {
-    document.querySelector(".overlay").classList.add("active");
-}
+    function showOverlay() {
+        const overlay = document.querySelector(".overlay");
+        overlay.style.display = "flex"; // Show overlay
+    
+        const difficulty = document.querySelector(".game-info .difficulty span").innerHTML.trim().toLowerCase();
+        
+        const gameMessageElement = document.querySelector(".overlay .game-message");
+        const nextMessageElement = document.querySelector(".overlay p:nth-child(2)");
+    
+        if (mistakesCount === 3) {
+            gameMessageElement.innerHTML = "Looks like you made some mistakes.";
+            nextMessageElement.innerHTML = "lets play again!";
+        } else {
+            if (difficulty === "easy") {
+                gameMessageElement.innerHTML = "You won!";
+                nextMessageElement.innerHTML = "That was easy! Now let's play Medium level.";
+            } else if (difficulty === "medium") {
+                gameMessageElement.innerHTML = "Great job!";
+                nextMessageElement.innerHTML = "Medium level completed! Try Hard mode next.";
+            } else if (difficulty === "hard") {
+                gameMessageElement.innerHTML = "Amazing!";
+                nextMessageElement.innerHTML = "You conquered Hard mode! Can you do it again? or lets play another game";
+            }
+        }
+    
+        overlay.classList.add("active"); // Make sure overlay is displayed
+    }
+    
 
 function removeOverlay() {
     document.querySelector(".overlay").classList.remove("active");
